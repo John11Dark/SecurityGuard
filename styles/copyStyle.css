@@ -1,0 +1,117 @@
+:root {
+  --codePrimaryColor: #cfb052;
+  --backgroundColor: #2c546fab;
+  --commentColor: #677381;
+  --symbolColor: #b9b499;
+  --userColor: var(--codePrimaryColor);
+  --commandColor: #e2e1e1;
+}
+
+.code {
+  display: -ms-grid;
+  display: grid;
+  background-color: var(--backgroundColor) !important;
+  margin: 0.75em;
+  padding: 2em 0em 1em 2em;
+  border-radius: 0.55rem;
+  width: 95%;
+  font-size: 20px;
+  font-family: var(--secondaryFont);
+  position: relative;
+  max-height: 45vh;
+  overflow-y: scroll;
+  overflow-x: hidden ;
+}
+
+code{
+  border-left: 4px solid #2c546fbb;
+  padding-left: 1em;
+}
+
+.customBar{
+position: absolute;
+top: 1%;
+right: 7.5%;
+pointer-events: none;
+}
+.Bullet{
+font-size: 0.85rem;
+}
+.Bullet.One{
+    color: #be2020da;
+}
+.Bullet.Two{
+    color: #d3931ee3;
+}
+.Bullet.Three{
+    color: #518051d5;
+}
+.comment {
+  color: var(--commentColor) !important;
+}
+
+.symbol {
+  color: var(--symbolColor) !important;
+}
+
+.user {
+  color: var(--userColor) !important;
+}
+.command {
+  color: var(--commandColor);
+}
+
+.builtInFunction{
+color: #0d78aa !important; 
+}
+
+.variable{
+  color: #cfb052 !important; 
+  margin: 0;
+  padding: 0;
+  appearance:unset;
+}
+
+var{
+  color: #b9b499;
+}
+
+.string{
+  color: #596ecc !important; 
+}
+
+.Library{
+  color: #0fc9a1 !important; 
+}
+.copyIcon {
+  right: 0;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25rem;
+}
+.copyIconSvg {
+  width: 15px;
+  height: 15px;
+  transform: translateY(10%);
+  fill: var(--symbolColor);
+  transition: all 0.3s ease ;
+}
+.copyIconSvg:hover{
+    transform: translateY(10%) scale(1.5);
+    fill: var(--codePrimaryColor);
+}
+
+[stepNum="4"] .code{
+  padding: 2em 0em -0em 2em;
+}
+.copyIcon.Script{
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: -0.2em;
+  transform: translateX(90%);
+}
+.copyIcon.Script > .copyIconSvg{
+  width:  40px;
+  height: 40px;
+}
+
