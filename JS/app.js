@@ -1,4 +1,3 @@
-
 let befScrollTop = 0;
 let headerOpacity = 1;
 
@@ -40,8 +39,8 @@ const progressList = document.querySelectorAll(".sectionLink");
 const dateSection = document.querySelectorAll(".sectionDate");
 const Header = document.querySelector('header');
 const dropDownMenu = document.querySelector(".progressDropDownMenu");
-
-
+const images = document.querySelectorAll(".descriptionImage");
+const imageContainer = document.querySelector(".imageShow");
 dateSection.forEach(weekDate => {
   const initialDate = new Date(weekDate.getAttribute("initialDate"));
   const newDate = formatRelativeDate(initialDate);
@@ -58,7 +57,8 @@ weekProgress.forEach((Progress, index) => {
 
 dropDownMenu.addEventListener("click", () => {
   let isMenuToggled = dropDownMenu.getAttribute("dropDownToggled");
-  if (isMenuToggled === "false") {
+  let isObjectExpanded = document.body.getAttribute("anObjectExpanded");
+  if (isMenuToggled === "false" && isObjectExpanded === "false") {
     dropDownMenu.setAttribute("dropDownToggled", true);
   } else if (isMenuToggled === "true") {
     dropDownMenu.setAttribute("dropDownToggled", false);
@@ -66,23 +66,42 @@ dropDownMenu.addEventListener("click", () => {
 });
 
 
-Logo.addEventListener('click', ()=>{
-  window.location.href='./index.html';
+Logo.addEventListener('click', () => {
+  window.location.href = './index.html';
 });
 
 const videoTest = document.querySelectorAll(".testComponentsVideo");
 
 
-videoTest.forEach(video =>{
-  video.addEventListener("click", ()=>{
-    
-    if(video.getAttribute("isPlaying") === "false"){
+videoTest.forEach(video => {
+  video.addEventListener("click", () => {
+
+    if (video.getAttribute("isPlaying") === "false") {
       video.play();
       video.setAttribute("isPlaying", true);
     }
-    else if (video.getAttribute("isPlaying") === "true"){
+    else if (video.getAttribute("isPlaying") === "true") {
       video.pause();
       video.setAttribute("isPlaying", "false");
+    }
+  });
+});
+
+
+images.forEach(image => {
+  image.addEventListener("click", ()=>{
+    const isImageExpanded = image.getAttribute("isToggled");
+    if (isImageExpanded === "false"){
+        image.setAttribute("isToggled", true);
+        imageContainer.classList.toggle("ObjectExpanded");
+        document.body.setAttribute("anObjectExpanded", true);
+    }
+    else if (isImageExpanded === "true")
+    {
+      imageContainer.classList.remove("ObjectExpanded");
+
+      image.setAttribute("isToggled", false);
+      document.body.setAttribute("anObjectExpanded", false);
     }
   });
 });

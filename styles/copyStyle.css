@@ -4,7 +4,7 @@
   --commentColor: #677381;
   --symbolColor: #b9b499;
   --userColor: var(--codePrimaryColor);
-  --commandColor: #e2e1e1;
+  --commandColor: #f8ba47;
 }
 
 .code {
@@ -25,7 +25,11 @@
 
 code{
   border-left: 4px solid #2c546fbb;
-  padding-left: 1em;
+  padding-left: 0.5em;
+  text-align: left;
+  word-wrap: break-word;
+  word-break:break-all;
+
 }
 
 .customBar{
@@ -61,10 +65,30 @@ font-size: 0.85rem;
   color: var(--commandColor);
 }
 
+.highlight{
+  background-color: #cfb052;
+  padding-right: 1%;
+  margin-bottom: -0.75em;
+}
 .builtInFunction{
 color: #0d78aa !important; 
 }
 
+.largerFont{
+font-size: 1.5em;
+margin-bottom: -0.5em !important;
+position: relative;
+}
+.largerFont::after{
+  content: '';
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  background-color: var(--userColor);
+  bottom: -0.2em;
+  left: 0.1em;
+  border-radius: 2.5rem;
+}
 .variable{
   color: #cfb052 !important; 
   margin: 0;
@@ -101,6 +125,12 @@ var{
     fill: var(--codePrimaryColor);
 }
 
+.scriptOne .copyIconSvg{
+  transform: translate(-85%, 50%) ;
+}
+.scriptOne .copyIconSvg:hover{
+  transform: translate(-85%, 50%) scale(1.5) ;
+}
 [stepNum="4"] .code{
   padding: 2em 0em -0em 2em;
 }
