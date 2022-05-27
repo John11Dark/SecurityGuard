@@ -17,8 +17,8 @@
     <link rel="icon" href="./Assets/Security Guard Logo Not emmbded.svg">
 
     <!-- CSS Style links -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/copyStyle.css">
+    <link rel="stylesheet" href="./Static/styles/style.css">
+    <link rel="stylesheet" href="./Static/styles/codeStyle.css">
 
 
     <!-- Font links -->
@@ -31,7 +31,7 @@
 
 
     <!-- API and Script links -->
-    <script src="./JS/app.js" defer></script>
+    <script src="./Static/JS/main.js" defer></script>
 
 </head>
 
@@ -209,10 +209,8 @@
     </section>
 
     <section class="progressSection">
+		<iframe class="weekVideo" width="560" height="315" src="https://www.youtube.com/embed/-acayaDyApw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        <video class="weekVideo" width="400" controls autoplay muted>
-            <source src="./Assets/weekOne/IMG_2800.MOV" type="video/MOV">
-        </video>
         <!-- progress Title and description -->
         <h4 class="weekProgressTitle">Building up the smart car</h4>
 
@@ -514,15 +512,21 @@
 
             <div class="stepHolder" stepNum="2">
                 <div class="stepTextHolder">
-                    <h5 stepNum="2. " class="subTitle hardwareTitle"> Install python </h5>
+                    <h5 stepNum="2. " class="subTitle hardwareTitle"> Install dependencies  </h5>
 
                     <p class="subDescription hardwareDescription">
-                        <i class="listBullet">&#11044;</i> Installing python 3 <br>
-                        <i class="listBullet">&#11044;</i> installing Freenove_RPI_WS281x_Python library<br>
+                        <i class="listBullet">&#11044;</i> Installing python/3 <br>
+                        <i class="listBullet">&#11044;</i> Installing pip/3 <br>
                         <i class="listBullet">&#11044;</i> installing python3-dev library<br>
-                        <i class="listBullet">&#11044;</i> installing python3-pyqt5 library
+                        <i class="listBullet">&#11044;</i> installing python3-pyqt5 library <br>
+                        <i class="listBullet">&#11044;</i> installing libqtgui4 <br>
+                        <i class="listBullet">&#11044;</i> installing libjasper-dev <br>
+                        <i class="listBullet">&#11044;</i> installing libqt4-test<br>
+                        <i class="listBullet">&#11044;</i> installing libhdf5-dev
+                        <i class="listBullet">&#11044;</i> installing Freenove_RPI_WS281x_Python library<br>
 
                     </p>
+					<br> <br>
                 </div>
 
                 <div class="imageShow">
@@ -541,7 +545,7 @@
                     <span class="comment">#Run the following command</span>   <br>
                     <span class="comment"># 1 install python</span>   <br>
                     <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> 
-                    <span class="command" isCopied="false">sudo apt-get install python python3
+                    <span class="command" isCopied="false">sudo apt-get install python -y && sudo apt-get install python3 -y
                         <i class="copyIcon">
                             <svg class="copyIconSvg">
                                 <use xlink:href="#COPY-ICON"></use>
@@ -549,18 +553,38 @@
                         </i>
                     </span> 
                     <br>
-                    <span class="comment"># 2 install dependencies</span> <br>
+                    <span class="comment"># 2 install python pip</span>   <br>
                     <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> 
-                    <span class="command" isCopied="false">sudo apt-get install -y python3-dev python3-pyqt5
+                    <span class="command" isCopied="false">sudo apt-get install pip -y && sudo apt-get install pip3 -y
                         <i class="copyIcon">
                             <svg class="copyIconSvg">
                                 <use xlink:href="#COPY-ICON"></use>
                             </svg>
                         </i>
-                    </span> <br>
-                    <span class="comment"># 3 clone python library from freenove for 4wd Smart car </span> <br>
+                    </span> 
+                    <br>
+                    <span class="comment"># 3 install system dependencies</span> <br>
+                    <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> 
+                    <span class="command" isCopied="false">sudo apt-get install python3-dev python3-pyqt5 libqtgui4 libjasper-dev <br> <space space="2"></space> libqt4-test libhdf5-dev-y
+                        <i class="copyIcon">
+                            <svg class="copyIconSvg">
+                                <use xlink:href="#COPY-ICON"></use>
+                            </svg>
+                        </i>
+                    </span>
+					<br>
+                    <span class="comment"># 4 clone python library from freenove for 4wd Smart car </span> <br>
                     <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> 
                     <span class="command" isCopied="false">git clone https://github.com/Freenove/Freenove_RPI_WS281x_Python.git                                        <i class="copyIcon">
+                            <svg class="copyIconSvg">
+                                <use xlink:href="#COPY-ICON"></use>
+                            </svg>
+                        </i>
+                    </span> 
+					<br>
+                    <span class="comment"># 5 install python dependencies </span> <br>
+                    <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> 
+                    <span class="command" isCopied="false"> sudo pip3 install flask <i class="copyIcon">
                             <svg class="copyIconSvg">
                                 <use xlink:href="#COPY-ICON"></use>
                             </svg>
@@ -721,6 +745,52 @@
                 </section>
             </div>
 
+            <div class="stepHolder" stepNum="5">
+
+                <div class="stepTextHolder">
+                    <h5 stepNum="5. " class="subTitle hardwareTitle"> setup the server for video streaming 
+                    </h5>
+
+                    <p class="subDescription hardwareDescription">
+                        <i class="listBullet">&#11044;</i> $  install python dependencies <br>
+						<i class="listBullet">&#11044;</i> $ create a python script to stream video to the <space space="2"></space> web server
+                    </p>
+                </div>
+
+                <div class="imageShow">
+                    <img closeButton="" src="./Assets/weekTwo/streamWebPage.png" class="descriptionImage"
+                        width="100px" height="100px" isToggled="false" alt="smart car gmail profile">
+                </div>
+
+                <section class="code">
+                    <div class="customBar">
+                        <i class="Bullet One">&#11044;</i>
+                        <i class="Bullet Two">&#11044;</i>
+                        <i class="Bullet Three">&#11044;</i>
+                    </div>
+                    <code language="Terminal">
+                            span class="comment">#Run the following command</span>   <br>
+        <span class="comment"># 1 to install camera dependencies</span>   <br>
+        <span class="user"> raspberry@Host<span class="symbol">:~$</span></span>
+            <span class="command" isCopied="false">sudo pip3 install numpy opencv-contrib-python <space space="2"></space> imutils  opencv-python<br>
+                <i class="copyIcon">
+                    <svg class="copyIconSvg"><use xlink:href="#COPY-ICON"></use></svg>
+                </i>
+        <span class="comment"># 2 make sure that numpy is latest version <br> other wise imutils won't get installed becasue it <br> requires numpy>=1.17.0 <br> at this time 2022/5/20 </span>   <br>
+            </span>
+            <br>
+        <span class="comment">the video script will be available later </span>   <br>
+                            
+                    </code>
+                    <i class="copyIcon Script">
+                        <svg class="copyIconSvg">
+                            <use xlink:href="#COPY-ICON"></use>
+                        </svg>
+                    </i>
+
+                </section>
+            </div>
+
 
 
         </setupHardware>
@@ -778,8 +848,10 @@
                 <li class="linkParent"> enable features</li>
                 <li class="linkParent"> update packages</li>
                 <li class="linkParent"> install python</li>
-                <li class="linkParent"> install python dependency</li>
                 <li class="linkParent"> install PyAudio</li>
+                <li class="linkParent"> install openCv</li>
+                <li class="linkParent"> install camera stream dependencies</li>
+                <li class="linkParent"> install python and pip for project dependency</li>
             </ul>
         </aside>
     </aside>
@@ -947,19 +1019,55 @@
 
                             <div class="stepTextHolder">
 
-                                <h5 stepNum="1. " class="subTitle hardwareTitle">Initial server on pi</h5>
+                                <h5 stepNum="1. " class="subTitle hardwareTitle">create the user interface</h5>
 
                                 <p class="subDescription hardwareDescription">
-                                    <i class="listBullet">&#11044;</i> update and upgrade packages to make sure <space space="2"> everything is up to date<br>
-                                    <i class="listBullet">&#11044;</i> install node js and <hover class="whatIs" standsFor="The Node Package Manager">npm</hover>  <br>
-                                    <i class="listBullet">&#11044;</i> navigate to the app directory<br>
-                                    <i class="listBullet">&#11044;</i> npm init to initial a project<br>
-                                    <i class="listBullet">&#11044;</i> npm install onoff<br>
-                                    <i class="listBullet">&#11044;</i> npm install socket.io<br>
-                                    <i class="listBullet">&#11044;</i> npm install libcap2-bin<br>
-                                    <i class="listBullet">&#11044;</i> allow node to run on port 80 <br>
-                                    <i class="listBullet">&#11044;</i> after all these setups are done <br> <space space="1">
-                                        create the web page <a class="inTextLink" href="/Pages/app.html">app</a> to control the car <br>
+                                    <i class="listBullet">&#11044;</i> create html page and design it with css<br>
+                                    <i class="listBullet">&#11044;</i> create the API requests to the flask server using  vanilla JavaScript<br>
+                                    <i class="listBullet">___</i> if you want to create a web page that turns on the LEDs usually what you will do is create a link and when it's pressed will go the the url given for example LED/On to switch the LED on 
+									or LED/Off to switch the LED off. <br> 
+									<section class="example">
+										<img src="./Assets/weekFour/btnsExample.png" alt="buttons example" isToggled="false" class="exampleImg descriptionImage">
+
+										<!-- when button clicked it goes to /LED/On route  -->
+										<a class="exampleButton"  title="switch LED on" href="#">Switch Led on</a>
+										
+										<!-- when button clicked it goes to /LED/off route  -->
+										<a class="exampleButton" title="switch LED off" href="#">Switch Led off</a>
+
+									</section>
+									but in my example it is not the case for,  example if i want to move the car forward and pressed on Forward 
+									the car want stop unless i go back to the page or route stop. beside that the page will go to another directory which means it has to reolad  
+									and thats not an efficient way of programming and it is not what i want as well
+									so i came up with an idea that while the button is pressed send's a request to the flask server 
+									and the car moves without reloading to another page
+									this example applies on click event or while is clicked ("mousedown")
+									so when the button is pressed down it's sending a fetch request in the background so the page does not have to reload or go to another
+									page, as soon as the button is pressed the car moves forward or any button is pressed and when it's released another request sent with stop so 
+									the car stops
+									<section class="example">
+											<h3 class="exampleTitle"> code Example </h3>
+											<img src="./Assets/weekFour/codeExample.png" alt="code example html javascript" isToggled="false" class="exampleCodeImg descriptionImage">
+									</section>          
+									<br>
+									so that applies for buttons on the <a class="inTextLink" href="./Pages/app.html">app page</a>
+									
+									<br>
+									<b>Video streaming</b>
+									for the video streaming the request sent and received via flask server
+									in reality it's sent via html as src="{{ url_for('videoStream') }}" this is python code between braces
+									and when flask server render the page it reads it and create a javascript request for it behind the scen 
+
+									<br>
+
+									<b>header items </b> 
+									for the header items there is more than one way to do it also i can do it like the video stram 
+									but i prefer to do it via javaScript 
+									i created a function to get data from the server on route /data
+									the server returns the batteries info, CPU temperature  
+									the request are sent every 20 ms 
+
+								
                                 </p>
                             </div>
 
@@ -1028,11 +1136,11 @@
                                 <code language="bash">
                                     <p class="comment largerFont">#Bash script</p>   <br>
                                 <span class="comment"># 1 navigate to directory</span>   <br>
-                                <span class="command">cd</span> <span class="string">"/home/JohnMuller/Documents/smartCarControlComponentsCode/Code/Server"</span>  <br>
+                                <span class="command">cd</span> <span class="string">"/home/JohnMuller/Documents/Smart Car Server/"</span>  <br>
                                 <span class="command">pwd</span> <br>
                                 <span class="command">sleep 10</span> <br>
                                 <span class="comment"># 4 run the server</span>   <br>
-                                <span class="command">sudo</span> <span class="string">mainServerApp.py</span>
+                                <span class="command">sudo</span> <span class="string">app.py</span>
                                 </code>
                                 <i class="copyIcon Script">
                                     <svg class="copyIconSvg">
@@ -1052,7 +1160,7 @@
                                 <p class="comment largerFont">#Terminal commands </p>   <br>
                                 <span class="comment">#Run the following command</span>   <br>
                                 <span class="comment"># 1 to have full access to the file </span>   <br>
-                                <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> <span class="command" isCopied="false">sudo chomd 777 /home/JohnMuller/Documents/App/Server/autoStart.sh <i class="copyIcon"> <svg class="copyIconSvg"><use xlink:href="#COPY-ICON"></use></svg></i></span>  <br>
+                                <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> <span class="command" isCopied="false">sudo chomd 777 /home/JohnMuller/Documents/Smart Car Server/autoStart.sh <i class="copyIcon"> <svg class="copyIconSvg"><use xlink:href="#COPY-ICON"></use></svg></i></span>  <br>
                                 <span class="comment"># 2 create new directory by default it will be created just run this command to make sure that it's there</span> <br>
                                 <span class="user"> raspberry@Host<span class="symbol">:~$</span></span> <span class="command" isCopied="false">mkdir ~/.config/autostart/ <i class="copyIcon"> <svg class="copyIconSvg"><use xlink:href="#COPY-ICON"></use></svg></i></span>  <br>
                                 <span class="comment"># 3 open config file in nano editor and set file to auto start </span> <br>
@@ -1063,7 +1171,7 @@
                                 <space space="2"> <span class="string"> Type=Application </span>  <br>
                                 <space space="2"> <span class="string"> Name=autoStart </span>  <br>
                                 <space space="2"> <span class="string"> NoDisplay=true </span>  <br>
-                                <space space="2"> <span class="string"> Exec=/home/JohnMuller/Documents/App/Server/autoStart.sh<span>  <br>
+                                <space space="2"> <span class="string"> Exec=//home/JohnMuller/Documents/Smart Car Server/autoStart.sh<span>  <br>
                                 <span class="comment"> #Press Ctrl+S to save <span>  <br>
                                 <span class="comment"> #Press Ctrl+X to exit <span>  <br>
                                 <span class="comment"> #Make file executable <span>  <br>

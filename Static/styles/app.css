@@ -1,0 +1,456 @@
+.asideControllersMain {
+  position: fixed;
+  z-index: 1000000;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--primaryCardColorLighter);
+  display: -ms-grid;
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 1em 0 1em;
+  border: 1px solid var(--TertiaryColor);
+  border-radius: var(--cardBorderRadius);
+  box-shadow: var(--boxShadowLightBehind);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.asideControllersMain[aria-expanded="false"] {
+  width: max(75px, 5em);
+}
+
+.asideControllersMain[aria-expanded="true"] {
+  max-width: 90vw;
+}
+.asideControllersList {
+  display: contents;
+}
+
+.asideControllersMain[aria-expanded="false"] .asideControllersText {
+  display: none;
+  visibility: hidden;
+}
+
+.linkControllerParent {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  gap: 1em;
+  width: 60px;
+  height: 60px;
+}
+.asideControllersIcon {
+  fill: var(--TertiaryColor);
+  width: 90%;
+  height: 40px;
+  cursor: pointer;
+  padding: 0 0 0 0.5em;
+  transform: scale(0.9);
+  transition: var(--transition-5ms-Ease);
+}
+.asideControllersIcon:hover {
+  transform: scale(1.05);
+  fill: var(--primaryColor);
+}
+
+#speedBar {
+  appearance: none;
+  display: inline;
+  color: var(--TertiaryColor);
+  transform: rotate(-90deg) translateX(0.5em);
+  fill: var(--TertiaryColor);
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--cardBorderRadius);
+}
+#speedBar::after {
+  content: attr(value);
+  bottom: 70%;
+  left: 45%;
+  position: absolute;
+  color: var(--TertiaryColor);
+}
+#speedBar::-webkit-slider-runnable-track {
+  appearance: none;
+  height: 14px;
+  background: var(--primaryColorDark);
+  border-radius: var(--cardBorderRadius);
+  border: 1.5px solid var(--TertiaryColor);
+}
+#speedBar::-webkit-slider-thumb {
+  appearance: none;
+  height: 17.5px;
+  width: 17.5px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--TertiaryColor);
+  margin-top: -0.25em;
+}
+
+aside {
+  display: none !important;
+}
+
+/* hero section */
+.heroSection {
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0 1em;
+}
+
+.heroTitle {
+  font-size: var(--headFontSize);
+  position: relative;
+  transform: translateX(-10%);
+}
+
+.welcomeIcon {
+  fill: var(--primaryColor);
+  max-width: 70px;
+  max-height: 70px;
+  position: absolute;
+  right: -20%;
+  top: 15%;
+  transform: rotate(-30deg);
+  pointer-events: none;
+  animation: wave 3s ease-in-out alternate infinite;
+}
+
+.securityGuardTemperature {
+  --_TFill: orange;
+}
+.securityGuardTemperature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 2.5%;
+  width: 8%;
+  font-size: var(--titleFontSize);
+  color: var(--_TFill);
+  fill: var(--_TFill);
+}
+
+.temperatureIcon {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.securityGuardBatteryInfo[status="good"] {
+  --_BFill: #16d174;
+}
+
+.securityGuardBatteryInfo[status="low"] {
+  --_BFill: #d1af16;
+}
+
+.securityGuardBatteryInfo[status="veryLow"] {
+  --_BFill: #d60b0b;
+}
+
+.securityGuardBatteryInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  width: 8%;
+  font-size: var(--titleFontSize);
+  color: var(--_BFill);
+  position: relative;
+}
+
+.batteryIcon {
+  fill: var(--_BFill);
+  max-width: 60px;
+  max-height: 60px;
+  transform: translateY(5%);
+}
+.securityGuardBatteryInfo::after {
+  content: "";
+  width: 25%;
+  height: 36%;
+  position: absolute;
+  top: 0;
+  transform: translate(29%, 85%);
+  left: 0;
+  background-color: var(--_BFill);
+}
+
+.symbol {
+  font-size: 20px !important;
+  transform: translateX(-50%);
+}
+
+.sensorsReadings {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  width: 25%;
+  font-size: var(--paragraphFontSize);
+}
+
+.sensorReadings {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 45%;
+  padding: 1em 2em;
+  background-color: var(--primaryCardColorLighter);
+  border-radius: var(--cardBorderRadius);
+  cursor: pointer;
+}
+
+.sensorBtnIcon {
+  position: absolute;
+  top: 0.25rem;
+  left: 0rem;
+  width: 25px;
+  height: 25px;
+  transform: scale(0.25);
+  pointer-events: none;
+  fill: var(--TertiaryColor);
+}
+
+#leftSensorReadings,
+#rightSensorReadings {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.textLabel {
+  font-size: 1.35rem;
+  margin-left: 1em;
+  color: var(--TertiaryColor);
+}
+
+.textReadingContent {
+  font-size: calc(var(--titleFontSize) - 1.2rem);
+}
+
+.mainContentApp {
+  display: flex;
+  place-self: center;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
+  min-height: 100vh;
+  background: var(--primaryCardColorLighter);
+  padding: 1em;
+  border-radius: var(--cardBorderRadius);
+  box-shadow: var(--boxShadowLightBehind);
+  margin: 2em 0;
+  position: relative;
+}
+
+.stream {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  width: 40%;
+  height: 100%;
+  position: relative;
+}
+.videoStreaming {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--cardBorderRadius);
+}
+
+body[closeToAnObject="true"] .stream::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  border-radius: var(--cardBorderRadius);
+  background-color: #cc0606bd;
+  animation: blink 0.75s ease-in-out alternate-reverse infinite;
+}
+
+.controllersForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: max(30%, 30vw);
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  padding: 1rem;
+  position: relative;
+}
+
+.keypadColors,
+.animationKeypad {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(auto-fill, 25%);
+  grid-template-rows: 35% 35% 35%;
+  gap: 5% 5%;
+}
+
+.ledBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  font-size: 20px;
+  max-width: 100%;
+  max-height: 100%;
+}
+.LedSVGs {
+  max-width: 20%;
+  max-height: 20%;
+  transform: scale(0.7);
+}
+#RGB_Button {
+  grid-row: 2;
+  grid-column: 2;
+}
+#rainbowAnimationBtn {
+  grid-row: 2;
+  grid-column: 1;
+}
+#randomAnimationBtn {
+  grid-row: 2;
+  grid-column: 3;
+}
+#chaserAnimation {
+  grid-row: 1;
+  grid-column: 2;
+}
+#cycleAnimationBtn {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.ledBtns[ledStatus="on"] {
+  background-color: var(--TertiaryColor2);
+}
+
+.formTitle {
+  position: absolute;
+  top: -20%;
+  left: 10%;
+  transform: translate(20%, 0%);
+}
+
+.ledIndexController {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: center;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#ColorPicker {
+  grid-column: 1 / span 3;
+  grid-row: 4;
+  width: 100%;
+  height: 50px;
+  border-radius: var(--cardBorderRadius);
+  border: 2px solid var(--_ColorPicker);
+}
+
+::placeholder {
+  font-size: 20px;
+  color: white;
+}
+.ledIndexController[ledStatus="on"] {
+  background-color: var(--_ColorPicker);
+}
+
+.LedSVGs {
+  max-width: 50px;
+  max-height: 50px;
+  fill: var(--primaryColor);
+}
+
+.buttonControllerLink {
+  width: 90%;
+  height: 5rem;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  transition: all 0.5s ease;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+.conIcon {
+  display: inline-block;
+  place-items: center;
+  place-content: center;
+  place-self: center;
+  max-width: 110%;
+  max-height: 110%;
+  fill: var(--primaryColor);
+  transition: all 0.5s ease;
+}
+
+button:hover .conIcon,
+button:hover .singleLedController {
+  fill: var(--TertiaryColor);
+}
+.Top {
+  grid-column: 2;
+  grid-row: 1;
+}
+.Top > .conIcon,
+.Bottom > .conIcon {
+  transform: translateX(15%);
+}
+.Right {
+  grid-column: 3;
+  grid-row: 2;
+}
+.Center {
+  grid-column: 2;
+  grid-row: 2;
+}
+.Stop > .conIcon {
+  transform: translateX(15%);
+}
+.Bottom {
+  grid-column: 2;
+  grid-row: 3;
+}
+.Left {
+  grid-column: 1;
+  grid-row: 2;
+}
+@keyframes wave {
+  0% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
